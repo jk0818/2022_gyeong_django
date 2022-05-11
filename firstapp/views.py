@@ -24,7 +24,7 @@ def insert(request):
     c = Curriculum(name='python')
     c.save()
     # 3-html/css/js 입력
-    Curriculum(name='python').save()
+    Curriculum(name='java script').save()
     # 4-django 입력
     Curriculum(name='django').save()
     return HttpResponse('데이터 입력 완료')
