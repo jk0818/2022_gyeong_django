@@ -7,7 +7,7 @@ def show(request):
     result = ''
     for c in course:
         result += c.name + '<br>'
-    return HttpResponse(result)
+    return render(request, 'secondapp/show.html', {'data':course})
 
 def insert(request):
     Course(name='데이터 분석', cnt = 30).save()
