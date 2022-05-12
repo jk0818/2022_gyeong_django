@@ -1,0 +1,10 @@
+<body>
+    <h1>ArmyShop</h1>
+    <hr>
+      <h4>
+        {% for c in data %} 
+          {{c.id}} / {{c.year}} / {{c.month}} /{{c.type}} / {{c.name}}
+          <br>
+        {% endfor %}
+      </h4>
+</body>
