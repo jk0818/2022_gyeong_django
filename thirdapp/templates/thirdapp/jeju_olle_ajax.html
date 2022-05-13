@@ -1,0 +1,12 @@
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    const data = axios({
+        url: '/third/jeju_olle/',
+        method: 'get',
+        params: {}
+    });
+    data.then(function (result) {
+        console.log(result.data);
+        document.body.innerHTML = result.data;
+    });
+</script>

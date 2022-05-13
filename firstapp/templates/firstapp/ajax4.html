@@ -1,0 +1,21 @@
+{% csrf_token %}
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    const csrfmiddlewaretoken =
+        document.querySelector('[name=csrfmiddlewaretoken]')
+    const formData = new FormData();
+    formData.append('a', 10);
+    formData.append('b', 20);
+    formData.append('c', 30);
+    formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
+
+    const data = axios({
+        url: '/first/req/post/',
+        method: 'post',
+        data: formData
+    });
+    data.then(function (result) {
+        console.log(result.data);
+    });
+</script>

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-esjq!11(x1vn4=_fnr=a!9zah9ff#*wnpyia+hn2*mz375#35l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']  #모든 도메인에서 실행가능 상태
 
 
 # Application definition

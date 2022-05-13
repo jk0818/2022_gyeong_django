@@ -40,3 +40,7 @@ def army_shop2(request, year, month):
         request, 'secondapp/army_shop.html',
         { 'data' : shops}
     )
+
+def course(request):
+    return render(
+        request, 'secondapp/course.html')

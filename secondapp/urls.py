@@ -9,5 +9,5 @@ urlpatterns = [
     path(
         'army_shop/<int:year>/<int:month>/',
         views.army_shop2),
-    
+     path('course/', views.course),
 ]
