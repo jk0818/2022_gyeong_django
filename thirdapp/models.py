@@ -70,12 +70,12 @@ class Dept(models.Model):
 class Emp(models.Model):
     empno = models.IntegerField(primary_key=True)
     ename = models.CharField(max_length=10)
-    job = models.IntegerField(max_length=9)
+    job = models.CharField(max_length=9)
     mgr = models.IntegerField(null=True)
     hiredate = models.DateField()
     sal = models.IntegerField()
     comm = models.IntegerField(null=True)
-    deptno = models.ForeignKey(Dept)
+    deptno = models.IntegerField()
     class Meta:
         db_table = 'emp'
         managed = False

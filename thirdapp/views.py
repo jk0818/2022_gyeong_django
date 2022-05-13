@@ -12,7 +12,13 @@ def shop(request):
     )
 
 def jeju_olle(request):
-    jeju_olle_list = JejuOlle.objects.all()
+    # jeju_olle_list = JejuOlle.objects.all()
+    
+    time = request.GET.get("time")
+    if not time: time = ''
+    jeju_olle_list = JejuOlle.objects.filter(time_info__contains = time)
+
+
     return render(
         request,
         'thirdapp/jeju_olle.html',

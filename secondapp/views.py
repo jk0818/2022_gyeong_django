@@ -21,9 +21,21 @@ def main(request):
 
     
 def army_shop(request):
-    shops = ArmyShop.objects.all()
-    print(shops)
+    # shops = ArmyShop.objects.all()
+    # print(shops)
+    prd = request.GET.get('prd')
+    if not prd:  #prd의 값이 업을 경우
+        prd = ""
+    shops = ArmyShop.objects.filter(
+        name__contains=prd)
 
+    return render(
+        request, 'secondapp/army_shop.html',
+        { 'data' : shops}
+    )
+
+def army_shop2(request, year, month):
+    shops = ArmyShop.objects.filter(year=year, month=month)
     return render(
         request, 'secondapp/army_shop.html',
         { 'data' : shops}
