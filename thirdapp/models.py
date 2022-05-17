@@ -41,6 +41,7 @@ class Warranty(models.Model):
     period = models.IntegerField(null=True)
     class Meta:
         db_table = 'warranty'
+
 class Product(models.Model):
     name = models.CharField(max_length=50, null=True)
     price = models.IntegerField(null=True)
@@ -57,8 +58,6 @@ class Playground(models.Model):
     class Meta:
         db_table = 'playground'
 
-
-
 class Dept(models.Model):
     deptno = models.IntegerField(primary_key=True)
     dname = models.CharField(max_length=14)
@@ -66,7 +65,6 @@ class Dept(models.Model):
     class Meta:
         db_table = 'dept'
         managed = False
-
 
 class Emp(models.Model):
     empno = models.IntegerField(primary_key=True)
@@ -79,4 +77,16 @@ class Emp(models.Model):
     deptno = models.IntegerField()
     class Meta:
         db_table = 'emp'
+        managed = False
+
+class Hospital(models.Model):
+    sido = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
+    medical = models.IntegerField(default=0)
+    room = models.IntegerField(default=0)
+    tel = models.CharField(max_length=15)
+    address = models.CharField(max_length=100)
+
+    class Meta:
+        db_table = 'hospital'
         managed = False

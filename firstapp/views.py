@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from .models import Curriculum
 
 
+def static(request):
+    return render(request, 'firstapp/static.html')
+
 def index1(request):
     return HttpResponse('<u>Hello</u>')
 def index2(request):
@@ -55,3 +58,39 @@ def req_get(request):
 
 def req_ajax4(request):
     return render(request, 'firstapp/ajax4.html')
+
+def var(request):
+    data = {
+        'str': 'text', 'num': 10,
+        'list': [1, 2, 3],
+        'dict': {'a': 'aaa', 'b': 'bbb'}
+    }
+    return render(
+        request, 'firstapp/var.html', data)
+
+def tag(request):
+    persons = [
+        { 'num': 1, 'name': 'Park', 'score': 100 },
+        { 'num': 2, 'name': 'Choi', 'score': 70 },
+        { 'num': 3, 'name': 'Kim', 'score': 80 }
+    ]
+    animals = ['Cat', 'Dog']
+    context = {
+        'persons': persons,
+        'animals': animals
+    }
+    return render(
+        request, 'firstapp/tag.html', context)
+
+import datetime
+def filter(request):
+    c = Curriculum.objects.all()
+
+    context = {
+        'curriculum': c,
+        'title': 'Simple Python', 'num': 10,
+        'price': 39800.5,
+        'animals': ['삵', '칡', '타조', '낙타'],
+        'covid': datetime.datetime(2020, 1, 8)
+    }
+    return render(request, 'firstapp/filter.html', context)

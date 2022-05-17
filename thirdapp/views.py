@@ -5,6 +5,7 @@ from .models import Shop
 from .models import JejuOlle
 from .models import Owner
 from django.http import HttpResponse
+from .models import Hospital
 
 
 def shop(request):
@@ -44,3 +45,15 @@ def owner(request):
 def jeju_olle_ajax(request):
     return render(
         request, 'thirdapp/jeju_olle_ajax.html')
+
+
+def hospital(request):
+    hospital_list = Hospital.objects.all()
+    return render(
+        request,
+        'thirdapp/hospital.html',
+        {'hospital_list': hospital_list}
+    )
+
+
+
