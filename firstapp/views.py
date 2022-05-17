@@ -94,3 +94,36 @@ def filter(request):
         'covid': datetime.datetime(2020, 1, 8)
     }
     return render(request, 'firstapp/filter.html', context)
+
+def template(request):
+    return render(
+        request, 'firstapp/template.html', {}
+    )
+
+from django.http import HttpResponse
+# from firstapp.models import Curriculum
+from .models import Curriculum
+from django.shortcuts import render
+
+from django.shortcuts import redirect
+from .forms import CurriculumForm
+def form_model(request):
+  if request.method == 'POST':
+    name = request.POST.get('name')
+    c = Curriculum(name=name)
+    c.save()
+
+    form = CurriculumForm(request.POST)
+    if form.is_valid():
+      # commit False 사용 시 Curriculum 모델클래스로 반환
+      c = form.save(commit=False)
+      c.save()      
+      return redirect('/first/form/model/')
+
+  else:
+    form = CurriculumForm()
+
+  return render(
+    request, 'firstapp/form_model.html',
+    { 'form': form }
+  )

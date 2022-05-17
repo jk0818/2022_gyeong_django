@@ -19,11 +19,13 @@ from firstapp import views
 from . import views as config_views
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
     path('index1/', views.index1),
     path('index2/', views.index2),
     path('first/', include('firstapp.urls')),
     path('home/', config_views.home),
+    path('', config_views.index),
 
     path('second/', include('secondapp.urls')),
     path('third/', include('thirdapp.urls')),
