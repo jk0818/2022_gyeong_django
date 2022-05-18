@@ -56,4 +56,32 @@ def hospital(request):
     )
 
 
+from django.http import HttpResponse
+# from firstapp.models import Curriculum
+from .models import Owner
+from django.shortcuts import render
+
+from django.shortcuts import redirect
+from .forms import OwnerForm
+def form_owner(request):
+  if request.method == 'POST':
+    name = request.POST.get('name')
+    c = Owner(name=name)
+    c.save()
+
+    form = OwnerForm(request.POST)
+    if form.is_valid():
+      # commit False 사용 시 Curriculum 모델클래스로 반환
+      c = form.save(commit=False)
+      c.save()      
+      return redirect('/third/form/owner/')
+
+  else:
+    form = OwnerForm()
+
+  return render(
+    request, 'thirdapp/form_owner.html',
+    { 'form': form }
+  )
+
 

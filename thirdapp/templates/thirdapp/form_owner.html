@@ -1,0 +1,14 @@
+<link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<div class="container">
+    <h5 class="my-3 border-bottom pb-2">Owner</h5>
+    <form method="post" action="/third/form/owner/" class="post-form my-3">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">owner</label>
+            <input type="text" class="form-control" name="name" id="name"
+                value="{{ form.name.value | default_if_none:'' }}">
+        </div>
+        <input type="submit" value="등록" class='btn btn-primary'>
+    </form>
+</div>
