@@ -16,6 +16,16 @@
         {% endfor %}
     </table>
 
+    {% if user.is_authenticated %}
+        <p>
+            <a class='nav-link' href="{% url 'member:logout' %}">
+                {{ user.username }} 님 반갑습니다. (로그아웃)
+            </a>
+        </p>
+    {% else %}
+    <p>현재 상태 : Guest</p>
+    {% endif %}
+
 </body>
 
 {% endblock %}
@@ -24,3 +34,4 @@
 {% block content2 %}
  <h1 style = 'font-weight: bold;'>content2</h1>
 {% endblock %}
+

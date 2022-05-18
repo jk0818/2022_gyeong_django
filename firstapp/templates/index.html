@@ -8,7 +8,11 @@
             text-decoration: None }
     </style>
 </script>
-
+    {% if user.is_authenticated %}
+    <p>{{ user.username }} 님 반갑습니다.</p>
+    {% else %}
+    <p>현재 상태 : Guest</p>
+    {% endif %}
 <ul>
     <li class="badge bg-secondary">
         <a target = '_blank' href='{% url "firstapp:show" %}' style = "color:white">첫번째 앱</a>
